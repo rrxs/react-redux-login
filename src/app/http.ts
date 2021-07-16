@@ -12,7 +12,7 @@ http.interceptors.request.use(function (config) {
     const jwt = loginService.getJwt();
 
     if (jwt) {
-        http.defaults.headers.push({Authentication: `Bearer ${jwt}`})
+        http.defaults.headers = {Authentication: `Bearer ${jwt}`};
     }
 
     return config;
